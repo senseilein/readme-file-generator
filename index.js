@@ -8,20 +8,37 @@ import inquirer from "inquirer";
 import path from "path";
 import { generateMarkdown } from "./utils/generateMarkdown.js";
 
-const test = {
-  title: "this is the title",
-};
-
-console.log(generateMarkdown(test));
+// const test = {
+//   title: "this is the title",
+// };
+// console.log(generateMarkdown(test));
 
 // array of questions for user
-const questions = [];
+const questions = [
+  {
+    type: "input",
+    message: "What is the title of the project?",
+    name: "title",
+  },
+];
 
 // function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  fs.writeFile(fileName, data, (error) => {
+    error ? console.error(error) : console.log(`Success!`);
+  });
+}
 
 // function to initialize program
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((response) => {
+    console.log(response);
+    const readMeFileContent = generateMarkdown(response);
+    console.log(readMeFileContent);
+
+    writeToFile("generatedREADME.md", readMeFileContent);
+  });
+}
 
 // function call to initialize program
 init();
