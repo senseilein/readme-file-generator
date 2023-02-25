@@ -1,8 +1,11 @@
 /*
-TODO (suggestions for improvement) - Create additional array of questions for sections with multistep answers
+TODO (suggestions for improvement) 
+- Create additional array of questions for sections with multistep answers
 * installation guidelines
 * contribution guidelines
 * credits section
+- Add defense on userProfile validation
+
   */
 
 import inquirer from "inquirer";
@@ -30,5 +33,4 @@ function init() {
 }
 
 // function call to initialize program
-
 init();

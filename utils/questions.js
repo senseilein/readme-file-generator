@@ -1,4 +1,5 @@
-import { isEmailValid } from "./functions.js";
+import { isValidEmail } from "./functions.js";
+import { isValidUserName } from "./functions.js";
 
 // array of questions for user
 const questions = [
@@ -79,7 +80,13 @@ const questions = [
     type: "input",
     message: " Please enter your email address: ",
     name: "emailAddress",
-    validate: isEmailValid,
+    validate: isValidEmail,
+  },
+  {
+    type: "input",
+    message: "Please enter your Github username: ",
+    name: "userName",
+    validate: isValidUserName,
   },
 ];
 

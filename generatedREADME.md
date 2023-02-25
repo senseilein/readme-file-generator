@@ -51,5 +51,6 @@ The following image shows the web application's appearance and functionality:
   All contributions are welcome. Contribution guidelines will be available soon.
   
 # ❔ QUESTIONS
-  If you have any questions, [please click here to send me an email.](mailto:email.four@hotmail.com) 
+  - If you have any questions, [please click here to send me an email.](mailto:gogo@popo.com) 
+  - You can also visit my Github profile [@kiki.](https://github.com/kiki)
   

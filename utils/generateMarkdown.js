@@ -105,9 +105,12 @@ ${userStory}
   `;
 
   /*---------- QUESTIONS SECTION ----------*/
-
+  const userName = data.userName
+    ? `[@${data.userName.trim()}.](https://github.com/${data.userName.trim()})`
+    : ".";
   const questions = `# ❔ QUESTIONS
-  If you have any questions, [please click here to send me an email.](mailto:${data.emailAddress}) 
+  - If you have any questions, [please click here to send me an email.](mailto:${data.emailAddress}) 
+  - You can also visit my Github profile ${userName}
   `;
 
   /*---------- LICENSE SECTION ----------*/
