@@ -7,7 +7,7 @@ function generateMarkdown(data) {
 
   /*---------- TABLE OF CONTENT ----------*/
   const tableOfContent = `
-## 🚩 TABLE OF CONTENT
+  ## 🚩 TABLE OF CONTENT
 - [Description](#-description)
 - [Usage](#-usage)
 - [Technology used](#-technology-used)
@@ -20,20 +20,19 @@ function generateMarkdown(data) {
 `;
 
   /*---------- DESCRIPTION SECTION ----------*/
-  const descriptionPlaceholder = `
+  const textPlaceholder = `
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
   - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
   - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
   `;
 
-  const whatIsItAbout = data.description || descriptionPlaceholder;
+  const whatIsItAbout = data.description || textPlaceholder;
 
   const imageURL = data.imageURL
     ? data.imageURL
     : "https://picsum.photos/id/1/800/500";
 
-  const description = `
-## 📖 DESCRIPTION  
+  const description = `## 📖 DESCRIPTION  
 ### 🎯 What is it about?  
 ${whatIsItAbout} 
 ### 🔍 Preview  
@@ -46,7 +45,8 @@ The following image shows the web application's appearance and functionality:\n
     data.deployedAppURL ||
     `https://en.wikipedia.org/wiki/HTTP_404#Soft_404_errors`;
 
-  const userStoryPlaceholder = `\`\`\`
+  const userStoryPlaceholder = `
+  \`\`\`
   As a user,
   I WANT to lorem ipsum dolor sit amet,
   SO THAT I can cursus metus aliquam eleifend mi in nulla.
@@ -55,8 +55,7 @@ The following image shows the web application's appearance and functionality:\n
     ? `\`\`\`${data.userStory}\`\`\``
     : userStoryPlaceholder;
 
-  const usage = `
-## 💻 USAGE
+  const usage = `## 💻 USAGE
 [You can visit the webpage here](${deployedAppURL})
 ### 💬 User story
 ${userStory}
@@ -68,19 +67,27 @@ ${userStory}
   /*---------- INSTALLATION SECTION ----------*/
   const installationRequirements =
     data.installation || `No installation required`;
-  const installation = `
-  ## 🚀 INSTALLATION
+  const installation = `## 🚀 INSTALLATION
   ${installationRequirements}
   `;
   /*---------- TESTS SECTION ----------*/
   const testRequirements = data.tests || `No tests available at the moment.`;
-  const tests = `
-  ## ✅ TESTS
+  const tests = `## ✅ TESTS
   ${testRequirements}
   `;
 
   /*---------- CREDITS SECTION ----------*/
-  // const credits = `x`;
+
+  let dataCredits = data.credits;
+  const generateCredits = (dataCredits) => {
+    let creditText = "";
+    if (!dataCredits) {
+    } else {
+      creditText = "\n## 💬 CREDITS\n" + dataCredits;
+    }
+    return creditText;
+  };
+  const credits = generateCredits(dataCredits);
 
   /*---------- CONTRIBUTING SECTION ----------*/
   // const contributing = `x`;
@@ -98,6 +105,7 @@ ${description}
 ${usage}
 ${installation}
 ${tests}
+${credits}
 `;
 
   return readMeFileContent;

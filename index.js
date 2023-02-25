@@ -2,6 +2,7 @@
 TODO (suggestions for improvement) - Create additional array of questions for sections with multistep answers
 * installation guidelines
 * contribution guidelines
+* credits section
   */
 
 import * as fs from "fs";
@@ -68,6 +69,20 @@ const questions = [
     name: "tests",
     when(answers) {
       return answers.hasTests;
+    },
+  },
+  {
+    type: "confirm",
+    message:
+      "Do you want to add a credits section to list the resources or people that helped you throughout the project?",
+    name: "hasCredits",
+  },
+  {
+    type: "input",
+    message: "Credits: ",
+    name: "credits",
+    when(answers) {
+      return answers.hasCredits;
     },
   },
 ];

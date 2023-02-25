@@ -1,7 +1,7 @@
 
 # TITLE NOT PROVIDED
 
-## 🚩 TABLE OF CONTENT
+  ## 🚩 TABLE OF CONTENT
 - [Description](#-description)
 - [Usage](#-usage)
 - [Technology used](#-technology-used)
@@ -11,7 +11,6 @@
 - [Contributing](#-contributing)
 - [Questions](#-questions)
 - [License](#-license)
-
 
 ## 📖 DESCRIPTION  
 ### 🎯 What is it about?  
@@ -25,21 +24,20 @@ The following image shows the web application's appearance and functionality:
 
 ![Project image](https://picsum.photos/id/1/800/500)
 
-
 ## 💻 USAGE
 [You can visit the webpage here](https://en.wikipedia.org/wiki/HTTP_404#Soft_404_errors)
 ### 💬 User story
-```
+
+  ```
   As a user,
   I WANT to lorem ipsum dolor sit amet,
   SO THAT I can cursus metus aliquam eleifend mi in nulla.
   ```
 
-
-  ## 🚀 INSTALLATION
+## 🚀 INSTALLATION
   No installation required
   
-
-  ## ✅ TESTS
+## ✅ TESTS
   No tests available at the moment.
   
+
