@@ -41,3 +41,12 @@ The following image shows the web application's appearance and functionality:
   No tests available at the moment.
   
 
+## 💬 CREDITS
+
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
+  - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
+  
+## ✅ CONTRIBUTING
+  Call my lawyer
+  

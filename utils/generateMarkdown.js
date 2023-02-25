@@ -97,7 +97,12 @@ ${userStory}
   const credits = generateCreditSection(dataCredits);
 
   /*---------- CONTRIBUTING SECTIO N ----------*/
-  // const contributing = `x`;
+  const contributionGuidelines =
+    data.contributing ||
+    `All contributions are welcome. Contribution guidelines will be available soon.`;
+  const contributing = `## ✨ CONTRIBUTING
+  ${contributionGuidelines}
+  `;
 
   /*---------- QUESTIONS SECTION ----------*/
   // const questions = `x`;
@@ -113,6 +118,7 @@ ${usage}
 ${installation}
 ${tests}
 ${credits}
+${contributing}
 `;
 
   return readMeFileContent;

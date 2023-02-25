@@ -85,6 +85,11 @@ const questions = [
       return answers.hasCredits;
     },
   },
+  {
+    type: "input",
+    message: "How can other developer contribute to the project? ",
+    name: "contributing",
+  },
 ];
 
 // function to write README file
