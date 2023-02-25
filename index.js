@@ -96,6 +96,13 @@ function writeToFile(fileName, data) {
 
 // function to initialize program
 function init() {
+  console.log(`
+  ✨ Welcome to the README file generator!✨
+  The app that dynamically generates a professional README.md file for you 
+  whilst enabling you to devote more time to working on your project!
+  
+  `);
+
   inquirer.prompt(questions).then((response) => {
     console.log(response);
     const readMeFileContent = generateMarkdown(response);

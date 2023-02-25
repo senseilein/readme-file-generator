@@ -80,7 +80,7 @@ ${userStory}
 
   let dataCredits = [data.credits, data.hasCredits];
 
-  const generateCredits = (dataCredits) => {
+  const generateCreditSection = (dataCredits) => {
     const [credits, hasCredits] = dataCredits;
     let creditText = "";
 
@@ -94,9 +94,9 @@ ${userStory}
     return creditText;
   };
 
-  const credits = generateCredits(dataCredits);
+  const credits = generateCreditSection(dataCredits);
 
-  /*---------- CONTRIBUTING SECTION ----------*/
+  /*---------- CONTRIBUTING SECTIO N ----------*/
   // const contributing = `x`;
 
   /*---------- QUESTIONS SECTION ----------*/
