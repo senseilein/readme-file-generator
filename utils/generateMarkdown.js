@@ -20,13 +20,13 @@ function generateMarkdown(data) {
 `;
 
   /*---------- DESCRIPTION SECTION ----------*/
-  const textPlaceholder = `
+  const placeholderText = `
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
   - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
   - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
   `;
 
-  const whatIsItAbout = data.description || textPlaceholder;
+  const whatIsItAbout = data.description || placeholderText;
 
   const imageURL = data.imageURL
     ? data.imageURL
@@ -78,15 +78,22 @@ ${userStory}
 
   /*---------- CREDITS SECTION ----------*/
 
-  let dataCredits = data.credits;
+  let dataCredits = [data.credits, data.hasCredits];
+
   const generateCredits = (dataCredits) => {
+    const [credits, hasCredits] = dataCredits;
     let creditText = "";
-    if (!dataCredits) {
-    } else {
-      creditText = "\n## 💬 CREDITS\n" + dataCredits;
+
+    if (hasCredits) {
+      if (credits) {
+        creditText = "\n## 💬 CREDITS\n" + credits;
+      } else {
+        creditText = "\n## 💬 CREDITS\n" + placeholderText;
+      }
     }
     return creditText;
   };
+
   const credits = generateCredits(dataCredits);
 
   /*---------- CONTRIBUTING SECTION ----------*/
