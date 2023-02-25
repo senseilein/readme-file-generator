@@ -3,7 +3,7 @@ function generateMarkdown(data) {
   /*---------- TITLE SECTION ----------*/
   const title = data.title
     ? `# ${data.title.toUpperCase()}`
-    : `# TITLE NOT PROVIDED`;
+    : `# LOREM IPSUM DOLOR SIT AMET`;
 
   /*---------- TABLE OF CONTENT ----------*/
   const tableOfContent = `
@@ -105,7 +105,10 @@ ${userStory}
   `;
 
   /*---------- QUESTIONS SECTION ----------*/
-  // const questions = `x`;
+
+  const questions = `# ❔ QUESTIONS
+  If you have any questions, [please click here to send me an email.](mailto:${data.emailAddress}) 
+  `;
 
   /*---------- LICENSE SECTION ----------*/
   // const licence
@@ -119,23 +122,10 @@ ${installation}
 ${tests}
 ${credits}
 ${contributing}
+${questions}
 `;
 
   return readMeFileContent;
 }
 
 export { generateMarkdown };
-
-// {
-//   type: "confirm",
-//   message: "Are you OK?",
-//   name: "ok",
-// },
-// {
-//   type: "input",
-//   message: "Why are you not OK?",
-//   name: "healthReason",
-//   when(answers) {
-//     return !answers.ok;
-//   },
-// },

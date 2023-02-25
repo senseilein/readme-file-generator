@@ -1,5 +1,5 @@
 
-# TITLE NOT PROVIDED
+# LOREM IPSUM DOLOR SIT AMET
 
   ## 🚩 TABLE OF CONTENT
 - [Description](#-description)
@@ -47,6 +47,9 @@ The following image shows the web application's appearance and functionality:
   - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
   - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
   
-## ✅ CONTRIBUTING
-  Call my lawyer
+## ✨ CONTRIBUTING
+  All contributions are welcome. Contribution guidelines will be available soon.
+  
+# ❔ QUESTIONS
+  If you have any questions, [please click here to send me an email.](mailto:email.four@hotmail.com) 
   
