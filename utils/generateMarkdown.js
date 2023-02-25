@@ -13,7 +13,10 @@ function generateMarkdown(data) {
 - [Usage](#-usage)
 - [Technology used](#-technology-used)
 - [Installation](#-installation)
-- [Credits](#-credits)
+- [Tests](#-tests)
+- [Contributing](#-contributing)
+- [Questions](#-questions)
+- [License](#-license)
 `;
   const description = `
 ## 📖 DESCRIPTION
