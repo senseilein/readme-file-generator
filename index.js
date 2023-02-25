@@ -25,6 +25,24 @@ const questions = [
     message: "Please kindly describe your project: ",
     name: "description",
   },
+  {
+    type: "confirm",
+    message: "Do you already have an image preview for this web application?",
+    name: "hasImagePreview",
+  },
+  {
+    type: "input",
+    message: "Please kindly provide the path or URL for the image: ",
+    name: "imageURL",
+    when(answers) {
+      return answers.hasImagePreview;
+    },
+  },
+  {
+    type: "input",
+    message: "User story:",
+    name: "userStory",
+  },
 ];
 
 // function to write README file
@@ -37,7 +55,7 @@ function writeToFile(fileName, data) {
 // function to initialize program
 function init() {
   inquirer.prompt(questions).then((response) => {
-    console.log(response);
+    console.log(response.health);
     const readMeFileContent = generateMarkdown(response);
     console.log(readMeFileContent);
 
@@ -46,4 +64,5 @@ function init() {
 }
 
 // function call to initialize program
+
 init();

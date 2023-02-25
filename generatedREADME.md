@@ -1,23 +1,36 @@
-# POIU
+
+# TITLE NOT PROVIDED
 
 ## 🚩 TABLE OF CONTENT
-
 - [Description](#-description)
 - [Usage](#-usage)
 - [Technology used](#-technology-used)
 - [Installation](#-installation)
 - [Tests](#-tests)
+- [Credits](#-credits)
 - [Contributing](#-contributing)
 - [Questions](#-questions)
 - [License](#-license)
 
-## 📖 DESCRIPTION
 
-### 🎯 What is it about?
+## 📖 DESCRIPTION  
+### 🎯 What is it about?  
 
-When creating an open source project on GitHub, it’s important to have a high-quality README for the app. This should include what the app is for, how to use the app, how to install it, how to report issues, and how to make contributions—this last part increases the likelihood that other developers will contribute to the success of the project.
-
-### 🔍 Preview
-
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
+  - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
+   
+### 🔍 Preview  
 The following image shows the web application's appearance and functionality:
 ![Project image](https://picsum.photos/id/1/800/500)
+
+
+## 💻 USAGE
+[You can visit the webpage here](https://en.wikipedia.org/wiki/HTTP_404#Soft_404_errors)
+### 💬 User story
+```
+  As a user,
+  I WANT to use the web application,
+  SO THAT I can solve a current problem
+  ```
+
