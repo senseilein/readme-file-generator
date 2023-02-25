@@ -22,6 +22,7 @@
    
 ### 🔍 Preview  
 The following image shows the web application's appearance and functionality:
+
 ![Project image](https://picsum.photos/id/1/800/500)
 
 
@@ -30,7 +31,11 @@ The following image shows the web application's appearance and functionality:
 ### 💬 User story
 ```
   As a user,
-  I WANT to use the web application,
-  SO THAT I can solve a current problem
+  I WANT to lorem ipsum dolor sit amet,
+  SO THAT I can cursus metus aliquam eleifend mi in nulla.
   ```
 
+
+  ## 🚀 INSTALLATION
+  No installation required
+  

@@ -43,6 +43,19 @@ const questions = [
     message: "User story:",
     name: "userStory",
   },
+  {
+    type: "confirm",
+    message: "Are there any installation requirements for this application?",
+    name: "hasInstallationRequirements",
+  },
+  {
+    type: "input",
+    message: "Installation requirements: ",
+    name: "installation",
+    when(answers) {
+      return answers.hasInstallationRequirements;
+    },
+  },
 ];
 
 // function to write README file
@@ -55,7 +68,7 @@ function writeToFile(fileName, data) {
 // function to initialize program
 function init() {
   inquirer.prompt(questions).then((response) => {
-    console.log(response.health);
+    console.log(response);
     const readMeFileContent = generateMarkdown(response);
     console.log(readMeFileContent);
 

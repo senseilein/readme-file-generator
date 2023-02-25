@@ -37,7 +37,7 @@ function generateMarkdown(data) {
 ### 🎯 What is it about?  
 ${whatIsItAbout} 
 ### 🔍 Preview  
-The following image shows the web application's appearance and functionality:
+The following image shows the web application's appearance and functionality:\n
 ![Project image](${imageURL})
 `;
 
@@ -62,17 +62,37 @@ The following image shows the web application's appearance and functionality:
 ${userStory}
 `;
 
+  /*---------- TECHNOLOGY USED SECTION ----------*/
   // const technologyUsed = `x`;
-  // const installation = `x`;
+
+  /*---------- INSTALLATION SECTION ----------*/
+  const installationRequirements =
+    data.installation || `No installation required`;
+  const installation = `
+  ## 🚀 INSTALLATION
+  ${installationRequirements}
+  `;
+  /*---------- TESTS SECTION ----------*/
+  // const tests
+
+  /*---------- CREDITS SECTION ----------*/
   // const credits = `x`;
-  // const licence = `x`;
-  // module.exports = generateMarkdown;
+
+  /*---------- CONTRIBUTING SECTION ----------*/
+  // const contributing = `x`;
+
+  /*---------- QUESTIONS SECTION ----------*/
+  // const questions = `x`;
+
+  /*---------- LICENSE SECTION ----------*/
+  // const licence
 
   const readMeFileContent = `
 ${title}
 ${tableOfContent}
 ${description}
 ${usage}
+${installation}
 `;
 
   return readMeFileContent;
