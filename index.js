@@ -1,7 +1,8 @@
-// const fs = require("fs");
-// const path = require("path");
-// const inquirer = require("inquirer");
-// const generateMarkdown = require("./utils/generateMarkdown");
+/*
+TODO (suggestions for improvement) - Create additional array of questions for sections with multistep answers
+* installation guidelines
+* contribution guidelines
+  */
 
 import * as fs from "fs";
 import inquirer from "inquirer";
@@ -54,6 +55,19 @@ const questions = [
     name: "installation",
     when(answers) {
       return answers.hasInstallationRequirements;
+    },
+  },
+  {
+    type: "confirm",
+    message: "Do you provide tests for this application?",
+    name: "hasTests",
+  },
+  {
+    type: "input",
+    message: "How to run tests? ",
+    name: "tests",
+    when(answers) {
+      return answers.hasTests;
     },
   },
 ];

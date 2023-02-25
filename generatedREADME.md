@@ -39,3 +39,7 @@ The following image shows the web application's appearance and functionality:
   ## 🚀 INSTALLATION
   No installation required
   
+
+  ## ✅ TESTS
+  No tests available at the moment.
+  

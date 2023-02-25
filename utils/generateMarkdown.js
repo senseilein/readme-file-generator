@@ -73,7 +73,11 @@ ${userStory}
   ${installationRequirements}
   `;
   /*---------- TESTS SECTION ----------*/
-  // const tests
+  const testRequirements = data.tests || `No tests available at the moment.`;
+  const tests = `
+  ## ✅ TESTS
+  ${testRequirements}
+  `;
 
   /*---------- CREDITS SECTION ----------*/
   // const credits = `x`;
@@ -93,6 +97,7 @@ ${tableOfContent}
 ${description}
 ${usage}
 ${installation}
+${tests}
 `;
 
   return readMeFileContent;
