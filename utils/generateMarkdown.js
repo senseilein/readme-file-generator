@@ -5,8 +5,9 @@ function generateMarkdown(data) {
 
   // `;
 
+  const title = `# ${data.title.toUpperCase()}`;
   const tableOfContent = `
-## TABLE OF CONTENT
+## 🚩 TABLE OF CONTENT
 
 - [Description](#-description)
 - [Usage](#-usage)
@@ -14,10 +15,24 @@ function generateMarkdown(data) {
 - [Installation](#-installation)
 - [Credits](#-credits)
 `;
+  const description = `
+## 📖 DESCRIPTION
+
+### 🎯 What is it about?
+${data.description}
+`;
+
+  // const usage = `x`;
+  // const technologyUsed = `x`;
+  // const installation = `x`;
+  // const credits = `x`;
+  // const licence = `x`;
 
   const readMeFileContent = `
-# ${data.title.toUpperCase()}
+${title}
 ${tableOfContent}
+${description}
+
 `;
 
   return readMeFileContent;

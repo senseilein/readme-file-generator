@@ -20,6 +20,11 @@ const questions = [
     message: "What is the title of the project?",
     name: "title",
   },
+  {
+    type: "input",
+    message: "Please kindly describe your project: ",
+    name: "description",
+  },
 ];
 
 // function to write README file
