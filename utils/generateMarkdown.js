@@ -114,10 +114,47 @@ ${userStory}
   `;
 
   /*---------- LICENSE SECTION ----------*/
-  // const licence
 
+  const hasLicense = data.hasLicense;
+  const licenseChoice = data.licenseChoice;
+  const generateLicenseBadge = (hasLicense, licenseChoice) => {
+    if (!hasLicense) {
+      return;
+    }
+
+    const licenseCollection = [
+      {
+        name: "MIT License",
+        badge:
+          "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
+      },
+      {
+        name: "Apache 2.0 License",
+        badge:
+          "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
+      },
+      {
+        name: "The Unlicense",
+        badge:
+          "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)",
+      },
+    ];
+
+    for (const license of licenseCollection) {
+      if (license.name === licenseChoice) {
+        return license.badge;
+      }
+    }
+  };
+
+  const license = `## 📃 LICENSE
+  This application is covered under the ${licenseChoice}
+  `;
+
+  /*---------- GENERATE README CONTENT ----------*/
   const readMeFileContent = `
 ${title}
+${generateLicenseBadge(hasLicense, licenseChoice)}
 ${tableOfContent}
 ${description}
 ${usage}
@@ -126,6 +163,7 @@ ${tests}
 ${credits}
 ${contributing}
 ${questions}
+${license}
 `;
 
   return readMeFileContent;

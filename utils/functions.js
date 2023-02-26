@@ -3,7 +3,9 @@ import * as fs from "fs";
 // function to write README file
 const writeToFile = (fileName, data) => {
   fs.writeFile(fileName, data, (error) => {
-    error ? console.error(error) : console.log(`Success!`);
+    error
+      ? console.error(error)
+      : console.log(`Well done, your README file is ready! Happy Coding!`);
   });
 };
 

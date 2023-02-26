@@ -88,6 +88,20 @@ const questions = [
     name: "userName",
     validate: isValidUserName,
   },
+  {
+    type: "confirm",
+    message: "Do you use a license for this project?",
+    name: "hasLicense",
+  },
+  {
+    type: "list",
+    message: "Please select the license: ",
+    name: "licenseChoice",
+    choices: ["MIT License", "Apache 2.0 License", "The Unlicense"],
+    when(answers) {
+      return answers.hasLicense;
+    },
+  },
 ];
 
 export { questions };
