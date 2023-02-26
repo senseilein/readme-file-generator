@@ -18,9 +18,11 @@ import { writeToFile } from "./utils/functions.js";
 function init() {
   console.log(`
   ✨ Welcome to the README file generator!✨
-  The app that dynamically generates a professional README.md file for you 
-  whilst enabling you to devote more time to working on your project!
+  The app that dynamically generates a professional README.md file for you whilst enabling you to devote more time to working on your project!
   
+  ✨ Please read the instructions carefully✨
+  - After answering a question, press [Enter] to submit it
+  - If you don't yet know the answer to a (non-mandatory) question, you can skip it and we will generate some placeholder content instead.
   `);
 
   inquirer.prompt(questions).then((response) => {
