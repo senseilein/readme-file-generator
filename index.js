@@ -20,7 +20,7 @@ const init = async () => {
   inquirer.prompt(questions).then((response) => {
     console.log(response);
     const readMeFileContent = generateMarkdown(response);
-
+    console.log(readMeFileContent);
     writeToFile("generatedREADME.md", readMeFileContent);
   });
 };
