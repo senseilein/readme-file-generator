@@ -1,6 +1,15 @@
 import { isValidEmail } from "./functions.js";
 import { isValidUserName } from "./functions.js";
 
+const welcomeMsg = `
+✨ Welcome to the README file generator!✨
+The app that dynamically generates a professional README.md file for you whilst enabling you to devote more time to working on your project!
+
+✨ Please read the instructions carefully✨
+- After answering a question, press [Enter] to submit it
+- If you don't yet know the answer to a (non-mandatory) question, you can skip it and we will generate some placeholder content instead.
+`;
+
 const confirmInstructions = [
   {
     type: "confirm",
@@ -13,22 +22,22 @@ const confirmInstructions = [
 const questions = [
   {
     type: "input",
-    message: "What is the title of the project?",
+    message: "Title of the project:",
     name: "title",
   },
   {
     type: "input",
-    message: "Please kindly describe your project: ",
+    message: "Description: (what is it about?) ",
     name: "description",
   },
   {
     type: "confirm",
-    message: "Do you already have an image preview for this web application?",
+    message: "Do you already have an image preview for this application?",
     name: "hasImagePreview",
   },
   {
     type: "input",
-    message: "Please kindly provide the path or URL for the image: ",
+    message: "Path or URL of the image: ",
     name: "imageURL",
     when(answers) {
       return answers.hasImagePreview;
@@ -59,7 +68,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "How to run tests? ",
+    message: "How to run the tests? ",
     name: "tests",
     when(answers) {
       return answers.hasTests;
@@ -68,7 +77,7 @@ const questions = [
   {
     type: "confirm",
     message:
-      "Do you want to add a credits section to list the resources or people that helped you throughout the project?",
+      "Do you want to add a credits section to list the resources and people that helped you throughout the project?",
     name: "hasCredits",
   },
   {
@@ -86,13 +95,13 @@ const questions = [
   },
   {
     type: "input",
-    message: " Please enter your email address: ",
+    message: "Email address: ",
     name: "emailAddress",
     validate: isValidEmail,
   },
   {
     type: "input",
-    message: "Please enter your Github username: ",
+    message: "Github username: ",
     name: "userName",
     validate: isValidUserName,
   },
@@ -112,4 +121,4 @@ const questions = [
   },
 ];
 
-export { confirmInstructions, questions };
+export { welcomeMsg, confirmInstructions, questions };

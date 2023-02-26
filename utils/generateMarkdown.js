@@ -1,5 +1,5 @@
 // function to generate markdown for README
-function generateMarkdown(data) {
+const generateMarkdown = (data) => {
   /*---------- TITLE SECTION ----------*/
   const title = data.title
     ? `# ${data.title.toUpperCase()}`
@@ -108,7 +108,7 @@ ${userStory}
   const userName = data.userName
     ? `[@${data.userName.trim()}.](https://github.com/${data.userName.trim()})`
     : ".";
-  const questions = `# ❔ QUESTIONS
+  const questions = `## ❔ QUESTIONS
   - If you have any questions, [please click here to send me an email.](mailto:${data.emailAddress}) 
   - You can also visit my Github profile ${userName}
   `;
@@ -167,6 +167,6 @@ ${license}
 `;
 
   return readMeFileContent;
-}
+};
 
 export { generateMarkdown };
