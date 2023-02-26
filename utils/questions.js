@@ -1,6 +1,14 @@
 import { isValidEmail } from "./functions.js";
 import { isValidUserName } from "./functions.js";
 
+const confirmInstructions = [
+  {
+    type: "confirm",
+    message: "Please kindly confirm that you've read the instructions:",
+    name: "hasRead",
+  },
+];
+
 // array of questions for user
 const questions = [
   {
@@ -104,4 +112,4 @@ const questions = [
   },
 ];
 
-export { questions };
+export { confirmInstructions, questions };

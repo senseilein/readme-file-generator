@@ -148,7 +148,7 @@ ${userStory}
   };
 
   const license = `## 📃 LICENSE
-  This application is covered under the ${licenseChoice}.
+  This application is covered under ${licenseChoice}.
   `;
 
   /*---------- GENERATE README CONTENT ----------*/

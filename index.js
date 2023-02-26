@@ -11,12 +11,12 @@ TODO (suggestions for improvement)
 import inquirer from "inquirer";
 import path from "path";
 import { generateMarkdown } from "./utils/generateMarkdown.js";
-import { questions } from "./utils/questions.js";
+import { confirmInstructions, questions } from "./utils/questions.js";
 import { writeToFile } from "./utils/functions.js";
 
 // function to initialize program
-function init() {
-  console.log(`
+const init = async () => {
+  console.info(`
   ✨ Welcome to the README file generator!✨
   The app that dynamically generates a professional README.md file for you whilst enabling you to devote more time to working on your project!
   
@@ -24,7 +24,11 @@ function init() {
   - After answering a question, press [Enter] to submit it
   - If you don't yet know the answer to a (non-mandatory) question, you can skip it and we will generate some placeholder content instead.
   `);
+  let hasReadInstruction = await inquirer.prompt(confirmInstructions);
 
+  while (!hasReadInstruction.hasRead) {
+    hasReadInstruction = await inquirer.prompt(confirmInstructions);
+  }
   inquirer.prompt(questions).then((response) => {
     console.log(response);
     const readMeFileContent = generateMarkdown(response);
@@ -32,7 +36,7 @@ function init() {
 
     writeToFile("generatedREADME.md", readMeFileContent);
   });
-}
+};
 
 // function call to initialize program
 init();
