@@ -1,7 +1,7 @@
 {
   "name": "readme-file-generator",
   "version": "1.0.0",
-  "description": "## Your Task",
+  "description": "A README file generator to dynamically generates professional README.md files for developers",
   "main": "index.js",
   "type": "module",
   "scripts": {
