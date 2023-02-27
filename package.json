@@ -8,9 +8,9 @@
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["readme", "file", "generator", "command-line"],
+  "author": "Sansi Bindika",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^9.1.4"
   }

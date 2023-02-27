@@ -163,6 +163,60 @@ const generateLicenseSection = (dataLicenseChoice) => {
     This application doesn't have any license for the moment.`;
 };
 
+//---Tech used--//
+const generateTechUsed = (dataTech) => {
+  const tech = dataTech.split(",");
+  return tech;
+};
+
+/*
+for logo
+(do step 2-5 first)
+Name => Name.toLowerCase()
+1. strip whitespaces
+2. remove all non-alphanumChar except + , # and .
+3. if + found >> replace + with plus
+4. if # found >> replace # with sharp
+5. if . found 
+      a. if only 1 occurrence >> replace with dot
+      b. if 2 occurrences >> delete them 
+
+Examples (found on https://github.com/simple-icons/simple-icons/blob/develop/slugs.md):
+
+Nintendo 3DS => nintendo3ds
+O'Reilly => oreilly
+Node.js => nodedotjs
+del.icio.us => delicious
+semantic-release => semanticrelease
+/e/ => e
+Kahoot! => kahoot
+C++ => cplusplus (same for notepad++)
+C Sharp => csharp
+*/
+const generateBadgeLogoLabel = (techLabel) => {
+  let label = techLabel.replace(/\+/g, "plus");
+
+  label = label.replace(/\#/g, "sharp");
+
+  let hasDots = label.match(/\./g);
+
+  if (hasDots && hasDots.length > 1) {
+    console.log(hasDots);
+    label = label.replace(/(?:\.)+/g, "");
+  }
+  label = label.replace(/\./g, "dot");
+
+  label = label.replace(/[^a-z0-9]/gi, "");
+
+  return label.toLowerCase();
+};
+
+const generateBadgeURL = (logo, techLabel) => {
+  console.log(`https://img.shields.io/badge/${techLabel}-black?logo=${logo}`);
+};
+
+//generateBadgeURL(generateBadgeLogoLabel("C++"), "C++");
+
 /* ----------------------------------------------------------------------- */
 
 // function to generate markdown for README
