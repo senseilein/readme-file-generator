@@ -163,10 +163,34 @@ const generateLicenseSection = (dataLicenseChoice) => {
     This application doesn't have any license for the moment.`;
 };
 
-//---Tech used--//
-const generateTechUsed = (dataTech) => {
-  const tech = dataTech.split(",");
-  return tech;
+/* ----------------------------------------------------------------------- */
+
+const capitalize = (tech) => {
+  let techName = tech.split(" ");
+  let capitalizedTech = techName.map((word) => {
+    const firstLetter = word[0].toUpperCase();
+    const restOfWord = word.substring(1).toLowerCase();
+    return firstLetter + restOfWord;
+  });
+  return capitalizedTech.join(" ");
+};
+
+//takes user string input and return tech array with trimmed and capitalized items
+const generateArrayOfTechUsed = (dataTech) => {
+  const techArray = dataTech.split(",");
+
+  const alphaNumChar = /[a-z0-9]/gi;
+
+  techArray.forEach((tech, index) => {
+    if (tech === "" || !tech.match(alphaNumChar)) {
+      techArray.splice(index, 1);
+    }
+  });
+  const newTechArray = techArray
+    .map((tech) => tech.trim())
+    .map((tech) => capitalize(tech));
+
+  return newTechArray;
 };
 
 /*
@@ -193,15 +217,14 @@ Kahoot! => kahoot
 C++ => cplusplus (same for notepad++)
 C Sharp => csharp
 */
-const generateBadgeLogoLabel = (techLabel) => {
-  let label = techLabel.replace(/\+/g, "plus");
+//return label for logo
+const generateLabelForLogo = (tech) => {
+  let label = tech.replace(/\+/g, "plus");
 
   label = label.replace(/\#/g, "sharp");
 
   let hasDots = label.match(/\./g);
-
   if (hasDots && hasDots.length > 1) {
-    console.log(hasDots);
     label = label.replace(/(?:\.)+/g, "");
   }
   label = label.replace(/\./g, "dot");
@@ -211,12 +234,25 @@ const generateBadgeLogoLabel = (techLabel) => {
   return label.toLowerCase();
 };
 
-const generateBadgeURL = (logo, techLabel) => {
-  console.log(`https://img.shields.io/badge/${techLabel}-black?logo=${logo}`);
+/**
+ * TODO improve function by including default color for most common tech e.g html, JS, CSS... */
+const generateBadgeURL = (logo, tech) => {
+  return `
+  ![](https://img.shields.io/badge/${tech}-black?logo=${logo})`;
 };
 
-//generateBadgeURL(generateBadgeLogoLabel("C++"), "C++");
+const generateTechSection = (listOfTech) => {
+  const techSection = `## ✅ TECHNOLOGY USED
+  ${listOfTech}
+  `;
+  return techSection;
+};
 
+const formattedTechItem = (tech) => {
+  return `${tech}
+
+`;
+};
 /* ----------------------------------------------------------------------- */
 
 // function to generate markdown for README
@@ -243,7 +279,17 @@ const generateMarkdown = (data) => {
   const usage = generateUsageSection(deployedAppURL, userStory);
 
   /*---------- TECHNOLOGY USED SECTION ----------*/
-  // const technologyUsed = `x`;
+  const techArray = generateArrayOfTechUsed(data.tech);
+
+  let listOfBadges = ``;
+  let listOfTech = ``;
+  techArray.forEach((tech) => {
+    const logo = generateLabelForLogo(tech);
+    listOfBadges += generateBadgeURL(logo, tech);
+    listOfTech += "-" + formattedTechItem(tech) + "\n";
+  });
+
+  const technologyUsed = generateTechSection(listOfTech);
 
   /*---------- INSTALLATION SECTION ----------*/
 
@@ -279,9 +325,11 @@ const generateMarkdown = (data) => {
   const readMeFileContent = `
 ${title}
 ${licenceBadge}
+${listOfBadges}
 ${tableOfContent}
 ${description}
 ${usage}
+${technologyUsed}
 ${installation}
 ${tests}
 ${credits}
