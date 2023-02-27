@@ -1,4 +1,6 @@
-// helper functions for the generateMarkdown() function
+//All helper functions for the generateMarkdown() function
+
+/* Title, licence badge & table of content */
 const generateTitle = (dataTitle) => {
   return dataTitle
     ? `# ${dataTitle.toUpperCase()}`
@@ -51,6 +53,7 @@ const createTableOfContent = () => {
   return tableOfContent;
 };
 
+/* Description section */
 const generateImageURL = (dataImageURL) => {
   return dataImageURL ? dataImageURL : "https://picsum.photos/id/1/800/500";
 };
@@ -77,6 +80,7 @@ The following image shows the web application's appearance and functionality:
   return description;
 };
 
+/* Usage */
 const generateUserStory = (dataUserStory) => {
   const userStoryPlaceholder = `
   \`\`\`
@@ -96,6 +100,7 @@ ${userStory}
   return usage;
 };
 
+/* Installation and tests sections */
 const generateInstallationSection = (dataInstallation) => {
   const installationRequirements =
     dataInstallation || `No installation required`;
@@ -113,6 +118,7 @@ const generateTestSection = (dataTests) => {
   return tests;
 };
 
+/* Credits, contributing, questions and licence sections*/
 const generateCreditSection = (dataCredits, dataHasCredits) => {
   const placeholderText = `
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -163,7 +169,7 @@ const generateLicenseSection = (dataLicenseChoice) => {
     This application doesn't have any license for the moment.`;
 };
 
-/* ----------------------------------------------------------------------- */
+/* Tech section */
 
 const capitalize = (tech) => {
   let techName = tech.split(" ");
@@ -249,6 +255,7 @@ const generateTechSection = (listOfTech) => {
 };
 
 const formattedTechItem = (tech) => {
+  // we need that extra line to render the list properly
   return `${tech}
 
 `;
