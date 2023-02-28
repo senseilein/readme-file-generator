@@ -38,6 +38,10 @@ This is a command-line application that runs with Node.js.
 
 `As a developer, I want to use the README file generator to generate a README file for my project so that I can devote more time to working on my project.`
 
+### 💬 Main functionalities
+
+![Walkthrough video](./assets/readme-file-generator-senseilein.mp4)
+
 ## ✅ TECHNOLOGY USED
 
 -Javascript
