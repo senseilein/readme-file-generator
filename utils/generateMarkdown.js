@@ -187,10 +187,10 @@ const generateQuestionSection = (dataUserName, dataEmailAddress) => {
 
 const generateLicenseSection = (dataLicenseChoice) => {
   return dataLicenseChoice
-    ? `## 📃 LICENSE
-    This application is covered under ${dataLicenseChoice}.`
-    : `## 📃 LICENSE
-    This application doesn't have any license for the moment.`;
+    ? `## 📃 LICENSE  
+This application is covered under ${dataLicenseChoice}.`
+    : `## 📃 LICENSE  
+This application doesn't have any license for the moment.`;
 };
 
 /* Tech section */

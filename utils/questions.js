@@ -28,7 +28,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "Description: (what is it about?) ",
+    message: "Description: (what is it about? what did you learn?) ",
     name: "description",
   },
   {
