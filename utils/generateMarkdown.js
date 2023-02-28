@@ -7,7 +7,7 @@ const generateTitle = (dataTitle) => {
 
 const generateLicenseBadge = (hasLicense, licenseChoice) => {
   if (!hasLicense) {
-    return;
+    return "";
   }
 
   const licenseCollection = [
@@ -66,6 +66,7 @@ const generateDescriptionSection = (dataDescription, imageURL) => {
   const whatIsItAbout = dataDescription || placeholderText;
 
   const description = `## 📖 DESCRIPTION  
+  
 ### 🎯 What is it about?  
 
 ${whatIsItAbout}  
@@ -272,8 +273,10 @@ const generateBadgeURL = (logo, tech) => {
 };
 
 const generateTechSection = (listOfTech) => {
+  const techInfo = listOfTech || "This section will be updated shortly.";
+
   const techSection = `## ✅ TECHNOLOGY USED
-  ${listOfTech}
+${techInfo}
   `;
   return techSection;
 };

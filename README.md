@@ -96,4 +96,4 @@ All contributions are welcome. Contribution guidelines will be available soon.
 
 ## 📃 LICENSE
 
-    This application is covered under MIT License.
+This application is covered under MIT License.

@@ -45,6 +45,11 @@ const questions = [
     },
   },
   {
+    type: "input",
+    message: "User story:",
+    name: "userStory",
+  },
+  {
     type: "confirm",
     message: "Can you provide a URL for the deployed application? ",
     name: "hasDeployedAppURL",
@@ -64,11 +69,6 @@ const questions = [
     when(answers) {
       return !answers.DeployedAppURL;
     },
-  },
-  {
-    type: "input",
-    message: "User story:",
-    name: "userStory",
   },
   {
     type: "input",
@@ -117,7 +117,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "How can other developer contribute to the project? ",
+    message: "How can other developers contribute to the project? ",
     name: "contributing",
   },
   {
