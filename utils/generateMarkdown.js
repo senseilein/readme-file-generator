@@ -2,9 +2,7 @@
 
 /* Title, licence badge & table of content */
 const generateTitle = (dataTitle) => {
-  return dataTitle
-    ? `# ${dataTitle.toUpperCase()}`
-    : `# LOREM IPSUM DOLOR SIT AMET`;
+  return dataTitle ? `# ${dataTitle.toUpperCase()}` : `# PROJECT TITLE`;
 };
 
 const generateLicenseBadge = (hasLicense, licenseChoice) => {
@@ -48,7 +46,7 @@ const createTableOfContent = () => {
 - [Credits](#-credits)
 - [Contributing](#-contributing)
 - [Questions](#-questions)
-- [License](#-license)
+- [Licens e](#-license)
 `;
   return tableOfContent;
 };
@@ -90,13 +88,39 @@ const generateUserStory = (dataUserStory) => {
   \`\`\``;
   return dataUserStory ? `\`\`\`${dataUserStory}\`\`\`` : userStoryPlaceholder;
 };
-const generateUsageSection = (deployedAppURL, userStory) => {
-  const usage = `## 💻 USAGE
-  [You can visit the webpage here](${deployedAppURL})
+const generateUsageSection = (
+  deployedAppURL,
+  userStory,
+  mainFunctionalities
+) => {
+  const includeURL = deployedAppURL
+    ? `[You can visit the webpage here](${deployedAppURL})`
+    : ``;
 
+  const placeholderText = `
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
+  - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
+  `;
+
+  const functionalities = `### 💬 Main functionalities
+    ${placeholderText}
+    `;
+
+  if (mainFunctionalities) {
+    functionalities = `### 💬 Main functionalities
+      ${mainFunctionalities}
+      `;
+  }
+
+  const usage = `## 💻 USAGE
+${includeURL}
 ### 💬 User story
 ${userStory}
+
+${functionalities}
 `;
+
   return usage;
 };
 
@@ -244,7 +268,7 @@ const generateLabelForLogo = (tech) => {
  * TODO improve function by including default color for most common tech e.g html, JS, CSS... */
 const generateBadgeURL = (logo, tech) => {
   return `
-  ![](https://img.shields.io/badge/${tech}-black?logo=${logo})`;
+  ![](https://img.shields.io/badge/${tech}-black?style=flat&logo=${logo}&logoWidth=23)`;
 };
 
 const generateTechSection = (listOfTech) => {
@@ -277,13 +301,16 @@ const generateMarkdown = (data) => {
   const description = generateDescriptionSection(data.description, imageURL);
 
   /*---------- USAGE SECTION ----------*/
-  const deployedAppURL =
-    data.deployedAppURL ||
-    `https://en.wikipedia.org/wiki/HTTP_404#Soft_404_errors`;
+  // const deployedAppURL = data.deployedAppURL || ``;
+  // const mainFunctionalities = data.mainFunctionalities || ``;
 
   const userStory = generateUserStory(data.userStory);
 
-  const usage = generateUsageSection(deployedAppURL, userStory);
+  const usage = generateUsageSection(
+    data.deployedAppURL,
+    userStory,
+    data.functionalities
+  );
 
   /*---------- TECHNOLOGY USED SECTION ----------*/
   const techArray = generateArrayOfTechUsed(data.tech);

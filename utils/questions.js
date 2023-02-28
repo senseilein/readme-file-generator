@@ -44,6 +44,27 @@ const questions = [
     },
   },
   {
+    type: "confirm",
+    message: "Can you provide a URL for the deployed application? ",
+    name: "hasDeployedAppURL",
+  },
+  {
+    type: "input",
+    message: "Deployed application URL:",
+    name: "deployedAppURL",
+    when(answers) {
+      return answers.hasDeployedAppURL;
+    },
+  },
+  {
+    type: "input",
+    message: "A few words about the main functionalities of the app:",
+    name: "mainFunctionalities",
+    when(answers) {
+      return !answers.DeployedAppURL;
+    },
+  },
+  {
     type: "input",
     message: "User story:",
     name: "userStory",

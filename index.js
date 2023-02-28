@@ -17,10 +17,10 @@ const init = async () => {
     hasReadInstruction = await inquirer.prompt(confirmInstructions);
   }
 
-  inquirer.prompt(questions).then((response) => {
-    console.log(response);
-    const readMeFileContent = generateMarkdown(response);
-    console.log(readMeFileContent);
+  inquirer.prompt(questions).then((data) => {
+    console.log(data);
+    const readMeFileContent = generateMarkdown(data);
+
     writeToFile("generatedREADME.md", readMeFileContent);
   });
 };
