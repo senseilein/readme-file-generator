@@ -46,7 +46,7 @@ const createTableOfContent = () => {
 - [Credits](#-credits)
 - [Contributing](#-contributing)
 - [Questions](#-questions)
-- [Licens e](#-license)
+- [License](#-license)
 `;
   return tableOfContent;
 };
