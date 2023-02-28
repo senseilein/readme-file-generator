@@ -9,8 +9,7 @@ const writeToFile = (fileName, data) => {
   });
 };
 
-// function to validate email address
-// regex found at https://www.w3schools.blog/email-validation-javascript-js
+// regex to validate email address found at https://www.w3schools.blog/email-validation-javascript-js
 const isValidEmail = (email) => {
   const mailformat =
     /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -22,7 +21,6 @@ const isValidUserName = (userName) => {
   // criteria to consider when validating userName (as per Github username requirements):
   // can only contain alphanumeric characters and dashes
   // Usernames must not exceed 39 characters
-  // const nonAlphanumericChar = `( )\`~!@#$%^&*-+=|\\{}[]:;"'<>,.?/_`;
 
   // regex excludes nonAlphanumChar except dashes
   const authorizedChar = /^[a-zA-Z0-9-]*$/gi;

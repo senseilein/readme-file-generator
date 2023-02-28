@@ -1,8 +1,8 @@
-// helper functions for the generateMarkdown() function
+//All helper functions for the generateMarkdown() function
+
+/* Title, licence badge & table of content */
 const generateTitle = (dataTitle) => {
-  return dataTitle
-    ? `# ${dataTitle.toUpperCase()}`
-    : `# LOREM IPSUM DOLOR SIT AMET`;
+  return dataTitle ? `# ${dataTitle.toUpperCase()}` : `# PROJECT TITLE`;
 };
 
 const generateLicenseBadge = (hasLicense, licenseChoice) => {
@@ -46,11 +46,12 @@ const createTableOfContent = () => {
 - [Credits](#-credits)
 - [Contributing](#-contributing)
 - [Questions](#-questions)
-- [License](#-license)
+- [Licens e](#-license)
 `;
   return tableOfContent;
 };
 
+/* Description section */
 const generateImageURL = (dataImageURL) => {
   return dataImageURL ? dataImageURL : "https://picsum.photos/id/1/800/500";
 };
@@ -77,6 +78,7 @@ The following image shows the web application's appearance and functionality:
   return description;
 };
 
+/* Usage */
 const generateUserStory = (dataUserStory) => {
   const userStoryPlaceholder = `
   \`\`\`
@@ -86,16 +88,43 @@ const generateUserStory = (dataUserStory) => {
   \`\`\``;
   return dataUserStory ? `\`\`\`${dataUserStory}\`\`\`` : userStoryPlaceholder;
 };
-const generateUsageSection = (deployedAppURL, userStory) => {
-  const usage = `## 💻 USAGE
-  [You can visit the webpage here](${deployedAppURL})
+const generateUsageSection = (
+  deployedAppURL,
+  userStory,
+  mainFunctionalities
+) => {
+  const includeURL = deployedAppURL
+    ? `[You can visit the webpage here](${deployedAppURL})`
+    : ``;
 
+  const placeholderText = `
+  - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  - Blandit aliquam etiam erat velit scelerisque in. Placerat vestibulum lectus mauris ultrices eros in. 
+  - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
+  `;
+
+  const functionalities = `### 💬 Main functionalities
+    ${placeholderText}
+    `;
+
+  if (mainFunctionalities) {
+    functionalities = `### 💬 Main functionalities
+      ${mainFunctionalities}
+      `;
+  }
+
+  const usage = `## 💻 USAGE
+${includeURL}
 ### 💬 User story
 ${userStory}
+
+${functionalities}
 `;
+
   return usage;
 };
 
+/* Installation and tests sections */
 const generateInstallationSection = (dataInstallation) => {
   const installationRequirements =
     dataInstallation || `No installation required`;
@@ -113,6 +142,7 @@ const generateTestSection = (dataTests) => {
   return tests;
 };
 
+/* Credits, contributing, questions and licence sections*/
 const generateCreditSection = (dataCredits, dataHasCredits) => {
   const placeholderText = `
   - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -163,10 +193,34 @@ const generateLicenseSection = (dataLicenseChoice) => {
     This application doesn't have any license for the moment.`;
 };
 
-//---Tech used--//
-const generateTechUsed = (dataTech) => {
-  const tech = dataTech.split(",");
-  return tech;
+/* Tech section */
+
+const capitalize = (tech) => {
+  let techName = tech.split(" ");
+  let capitalizedTech = techName.map((word) => {
+    const firstLetter = word[0].toUpperCase();
+    const restOfWord = word.substring(1).toLowerCase();
+    return firstLetter + restOfWord;
+  });
+  return capitalizedTech.join(" ");
+};
+
+//takes user string input and return tech array with trimmed and capitalized items
+const generateArrayOfTechUsed = (dataTech) => {
+  const techArray = dataTech.split(",");
+
+  const alphaNumChar = /[a-z0-9]/gi;
+
+  techArray.forEach((tech, index) => {
+    if (tech === "" || !tech.match(alphaNumChar)) {
+      techArray.splice(index, 1);
+    }
+  });
+  const newTechArray = techArray
+    .map((tech) => tech.trim())
+    .map((tech) => capitalize(tech));
+
+  return newTechArray;
 };
 
 /*
@@ -193,15 +247,14 @@ Kahoot! => kahoot
 C++ => cplusplus (same for notepad++)
 C Sharp => csharp
 */
-const generateBadgeLogoLabel = (techLabel) => {
-  let label = techLabel.replace(/\+/g, "plus");
+//return label for logo
+const generateLabelForLogo = (tech) => {
+  let label = tech.replace(/\+/g, "plus");
 
   label = label.replace(/\#/g, "sharp");
 
   let hasDots = label.match(/\./g);
-
   if (hasDots && hasDots.length > 1) {
-    console.log(hasDots);
     label = label.replace(/(?:\.)+/g, "");
   }
   label = label.replace(/\./g, "dot");
@@ -211,12 +264,26 @@ const generateBadgeLogoLabel = (techLabel) => {
   return label.toLowerCase();
 };
 
-const generateBadgeURL = (logo, techLabel) => {
-  console.log(`https://img.shields.io/badge/${techLabel}-black?logo=${logo}`);
+/**
+ * TODO improve function by including default color for most common tech e.g html, JS, CSS... */
+const generateBadgeURL = (logo, tech) => {
+  return `
+  ![](https://img.shields.io/badge/${tech}-black?style=flat&logo=${logo}&logoWidth=23)`;
 };
 
-//generateBadgeURL(generateBadgeLogoLabel("C++"), "C++");
+const generateTechSection = (listOfTech) => {
+  const techSection = `## ✅ TECHNOLOGY USED
+  ${listOfTech}
+  `;
+  return techSection;
+};
 
+const formattedTechItem = (tech) => {
+  // we need that extra line to render the list properly
+  return `${tech}
+
+`;
+};
 /* ----------------------------------------------------------------------- */
 
 // function to generate markdown for README
@@ -234,16 +301,29 @@ const generateMarkdown = (data) => {
   const description = generateDescriptionSection(data.description, imageURL);
 
   /*---------- USAGE SECTION ----------*/
-  const deployedAppURL =
-    data.deployedAppURL ||
-    `https://en.wikipedia.org/wiki/HTTP_404#Soft_404_errors`;
+  // const deployedAppURL = data.deployedAppURL || ``;
+  // const mainFunctionalities = data.mainFunctionalities || ``;
 
   const userStory = generateUserStory(data.userStory);
 
-  const usage = generateUsageSection(deployedAppURL, userStory);
+  const usage = generateUsageSection(
+    data.deployedAppURL,
+    userStory,
+    data.functionalities
+  );
 
   /*---------- TECHNOLOGY USED SECTION ----------*/
-  // const technologyUsed = `x`;
+  const techArray = generateArrayOfTechUsed(data.tech);
+
+  let listOfBadges = ``;
+  let listOfTech = ``;
+  techArray.forEach((tech) => {
+    const logo = generateLabelForLogo(tech);
+    listOfBadges += generateBadgeURL(logo, tech);
+    listOfTech += "-" + formattedTechItem(tech) + "\n";
+  });
+
+  const technologyUsed = generateTechSection(listOfTech);
 
   /*---------- INSTALLATION SECTION ----------*/
 
@@ -279,9 +359,11 @@ const generateMarkdown = (data) => {
   const readMeFileContent = `
 ${title}
 ${licenceBadge}
+${listOfBadges}
 ${tableOfContent}
 ${description}
 ${usage}
+${technologyUsed}
 ${installation}
 ${tests}
 ${credits}
