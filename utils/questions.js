@@ -78,14 +78,14 @@ const questions = [
   {
     type: "confirm",
     message: "Are there any installation requirements for this application?",
-    name: "hasInstallationRequirements",
+    name: "hasInstallation",
   },
   {
     type: "input",
     message: "Installation requirements: ",
     name: "installation",
     when(answers) {
-      return answers.hasInstallationRequirements;
+      return answers.hasInstallation;
     },
   },
   {

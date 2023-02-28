@@ -126,9 +126,17 @@ ${functionalities}
 };
 
 /* Installation and tests sections */
-const generateInstallationSection = (dataInstallation) => {
-  const installationRequirements =
-    dataInstallation || `No installation required`;
+const generateInstallationSection = (dataInstallation, dataHasInstallation) => {
+  let installationRequirements = "";
+
+  if (dataHasInstallation) {
+    installationRequirements =
+      dataInstallation ||
+      `The installation guidelines will be updated shortly.`;
+  } else {
+    installationRequirements = `No installation required`;
+  }
+
   const installation = `## 🚀 INSTALLATION
 ${installationRequirements}
 `;
@@ -138,7 +146,7 @@ ${installationRequirements}
 const generateTestSection = (dataTests) => {
   const testRequirements = dataTests || `No tests available at the moment.`;
   const tests = `## ✅ TESTS
-  ${testRequirements}
+${testRequirements}
   `;
   return tests;
 };
@@ -330,7 +338,10 @@ const generateMarkdown = (data) => {
 
   /*---------- INSTALLATION SECTION ----------*/
 
-  const installation = generateInstallationSection(data.installation);
+  const installation = generateInstallationSection(
+    data.installation,
+    data.hasInstallation
+  );
 
   /*---------- TESTS SECTION ----------*/
 
