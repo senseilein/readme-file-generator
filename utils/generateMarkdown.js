@@ -189,7 +189,7 @@ const generateQuestionSection = (dataUserName, dataEmailAddress) => {
     : ".";
 
   const questions = `## ❔ QUESTIONS
-  - If you have any questions, [please click here to send me an email.](mailto:${dataEmailAddress.trim()}) 
+  - If you have any questions, [please click here to send me an email.](mailto:${dataEmailAddress}) 
   - You can also visit my Github profile ${userName}
   `;
 
