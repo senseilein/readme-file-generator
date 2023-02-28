@@ -8,6 +8,7 @@ The app that dynamically generates a professional README.md file for you whilst 
 ✨ Please read the instructions carefully✨
 - After answering a question, press [Enter] to submit it
 - If you don't yet know the answer to a (non-mandatory) question, you can skip it and we will generate some placeholder content instead.
+(You can always update those sections after the file has been generated)
 `;
 
 const confirmInstructions = [
@@ -71,7 +72,7 @@ const questions = [
   },
   {
     type: "input",
-    message: "Please insert all the tech used separated by a comma",
+    message: "Insert all the tech used separated by a comma: (e.g html5, c++)",
     name: "tech",
   },
   {
