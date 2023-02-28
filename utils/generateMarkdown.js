@@ -66,7 +66,7 @@ const generateDescriptionSection = (dataDescription, imageURL) => {
   const whatIsItAbout = dataDescription || placeholderText;
 
   const description = `## 📖 DESCRIPTION  
-  
+
 ### 🎯 What is it about?  
 
 ${whatIsItAbout}  
@@ -175,7 +175,7 @@ const generateContributingSection = (dataContributing) => {
 
 const generateQuestionSection = (dataUserName, dataEmailAddress) => {
   const userName = dataUserName
-    ? `[@${dataUserName.trim()}.](https://github.com/${dataUserName.trim()})`
+    ? `[@${dataUserName.trim()}](https://github.com/${dataUserName.trim()}).`
     : ".";
 
   const questions = `## ❔ QUESTIONS
