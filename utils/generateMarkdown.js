@@ -104,7 +104,7 @@ const generateUsageSection = (
   - Cursus metus aliquam eleifend mi in nulla. Sagittis orci a scelerisque purus semper eget duis at tellus.
   `;
 
-  const functionalities = `### 💬 Main functionalities
+  let functionalities = `### 💬 Main functionalities
     ${placeholderText}
     `;
 
@@ -320,7 +320,7 @@ const generateMarkdown = (data) => {
   const usage = generateUsageSection(
     data.deployedAppURL,
     userStory,
-    data.functionalities
+    data.mainFunctionalities
   );
 
   /*---------- TECHNOLOGY USED SECTION ----------*/
