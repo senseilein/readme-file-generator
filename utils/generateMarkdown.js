@@ -320,7 +320,7 @@ const generateMarkdown = (data) => {
   techArray.forEach((tech) => {
     const logo = generateLabelForLogo(tech);
     listOfBadges += generateBadgeURL(logo, tech);
-    listOfTech += "-" + formattedTechItem(tech) + "\n";
+    listOfTech += "- " + formattedTechItem(tech) + "\n";
   });
 
   const technologyUsed = generateTechSection(listOfTech);
