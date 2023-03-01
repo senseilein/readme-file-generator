@@ -33,7 +33,7 @@ The following image shows the web application's appearance and functionality:
 ## 💻 USAGE
 
 This is a command-line application that runs with Node.js.
-![Walkthrough video of the application] (https://clipchamp.com/watch/wbuvDKBSI6H)
+![Walkthrough video of the application] (./assets/readme-file-generator-demo.mp4)
 
 ### 💬 User story
 
@@ -80,7 +80,12 @@ No tests available at the moment.
 - [Professional README guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide)
 - [Readme.so](https://readme.so/editor)
 
-**Thank you**
+**Video**
+
+- [Screenpresso](https://www.screenpresso.com/) - to record
+- [ClipChamp] (https://www.clipchamp.com/) - to edit
+
+- **Thank you**
 
 - [Clobee](https://github.com/clobee) for helping me with Regex
 - My tutor for explaining the concept of async functions
