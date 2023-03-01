@@ -18,7 +18,6 @@ const init = async () => {
   }
 
   inquirer.prompt(questions).then((data) => {
-    console.log(data);
     const readMeFileContent = generateMarkdown(data);
 
     writeToFile("generatedREADME.md", readMeFileContent);
