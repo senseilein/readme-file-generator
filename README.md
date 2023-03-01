@@ -84,7 +84,7 @@ No tests available at the moment.
 **Video**
 
 - [Screenpresso](https://www.screenpresso.com/) - to record
-- [ClipChamp] (https://www.clipchamp.com/) - to edit
+- [ClipChamp](https://www.clipchamp.com/) - to edit
 
 **Thank you**
 
