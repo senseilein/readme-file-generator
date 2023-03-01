@@ -33,7 +33,8 @@ The following image shows the web application's appearance and functionality:
 ## 💻 USAGE
 
 This is a command-line application that runs with Node.js.
-![Walkthrough video of the application] (./assets/readme-file-generator-demo.mp4)
+
+![Walkthrough video of the application](./assets/readme-file-generator-demo.mp4)
 
 ### 💬 User story
 
