@@ -285,7 +285,7 @@ const generateBadgeURL = (logo, tech) => {
 const generateTechSection = (listOfTech) => {
   const techInfo = listOfTech || "This section will be updated shortly.";
 
-  const techSection = `## ✅ TECHNOLOGY USED
+  const techSection = `## 🔌 TECHNOLOGY USED
 ${techInfo}
   `;
   return techSection;
