@@ -40,7 +40,7 @@ This is a command-line application that runs with Node.js.
 
 `As a developer, I want to use the README file generator to generate a README file for my project so that I can devote more time to working on my project.`
 
-## ✅ TECHNOLOGY USED
+## 🔌 TECHNOLOGY USED
 
 -Javascript
 
@@ -86,7 +86,7 @@ No tests available at the moment.
 - [Screenpresso](https://www.screenpresso.com/) - to record
 - [ClipChamp] (https://www.clipchamp.com/) - to edit
 
-- **Thank you**
+**Thank you**
 
 - [Clobee](https://github.com/clobee) for helping me with Regex
 - My tutor for explaining the concept of async functions
