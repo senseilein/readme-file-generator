@@ -66,7 +66,7 @@ No tests available at the moment.
   All contributions are welcome. Contribution guidelines will be available soon.
   
 ## ❔ QUESTIONS
-  - If you have any questions, [please click here to send me an email.](mailto:sensei@sensei.com) 
+  - If you have any questions, [please click here to send me an email.](mailto:senseilein@senseilein.com) 
   - You can also visit my Github profile [@senseilein](https://github.com/senseilein).
   
 ## 📃 LICENSE  
