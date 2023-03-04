@@ -89,7 +89,7 @@ No tests available at the moment.
 **Thank you**
 
 - [Clobee](https://github.com/clobee) for helping me with Regex
-- My tutor for explaining the concept of async functions
+- [Tudor Andrei](https://github.com/ttudorandrei) for explaining the concept of async functions
 - My teachers and classmates at Trilogy Skills Bootcamp
 
 ## ✨ CONTRIBUTING
